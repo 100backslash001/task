@@ -10,11 +10,14 @@ sub startup ($self) {
   # Configure the application
   $self->secrets($config->{secrets});
 
+  $self->plugin('TemplateToolkit');
+  $self->renderer->default_handler('tt2');
+
   # Router
   my $r = $self->routes;
 
   # Normal route to controller
-  $r->get('/')->to('Example#welcome');
+  $r->get('/')->to('Array_sort#array_sort');
 }
 
 1;

@@ -1,0 +1,16 @@
+<h1>Welcome to array sorter</h1>
+<h2>Array before sorting:</h2>
+[% FOREACH item IN unsorted %]
+  [% item | html %]
+[% END %]
+<h2>Array after sorting:</h2>
+[% FOREACH item IN sorted %]
+  [% item | html %]
+[% END %]
+
+<h2>Mathes in sorted array:</h2>
+<form action="" name="sort_form">
+  <input type="text" name="value">
+  <input type="submit" value="find">
+</form>
+<p>The element [% element %]: [% IF matched -%] MATCH [% ELSE -%]NOT MATCH[% END -%]</p>
