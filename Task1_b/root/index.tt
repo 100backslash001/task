@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Phone book</title>
+    <script type="text/javascript">
+        function add_contact() {
+            let elem = document.getElementById('add');
+            let attr = ["name", "fname", "phone", "submit"];
+            let td = document.createElement("td");
+            td.setAttribute("colspan", "6");
+            let form = document.createElement("form");
+            form.setAttribute("action", "phonebook/create");
+            for (let i = 0; i < 4; i++) {
+              let input = document.createElement("input");
+              if (i == 3) {
+                input.setAttribute("type", "submit");
+                input.setAttribute("value", "submit");
+              }
+              else {
+                input.setAttribute("type", "text");
+                input.setAttribute("name", attr[i]);
+              }
+              form.appendChild(input);
+              td.appendChild(form);
+              elem.appendChild(td);
+            }
+            document.getElementById('put').removeAttribute("onclick");
+        }
+    </script>
+  </head>
+  <body>
+    [% INCLUDE header.tt %]
+    <table border="1" cellspacing="0">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Last Name</th>
+        <th>Phone number</th>
+        <th>Created At</th>
+        <th>Updated At</th>
+        <th>Actions</th>
+      </tr>
+      [% FOREACH contact IN contacts -%]
+      <tr>
+        <td>[% contact.id | html %]</td>
+        <td>[% contact.name | html %]</td>
+        <td>[% contact.fname | html %]</td>
+        <td>[% contact.phone | html %]</td>
+        <td>[% contact.created_at | html %]</td>
+        <td>[% contact.updated_at | html %]</td>
+        <td>
+          <a href="[% c.uri_for_action('phonebook/delete', contact.id) %]">Delete</a> |
+          <a href="[% c.uri_for_action('phonebook/edit', contact.id) %]">Edit</a>
+        </td>
+      </tr>
+      [% END -%]
+      <tr id="add">
+        <td>
+          <input type="submit" id="put" value="Add" onclick="add_contact()">
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
