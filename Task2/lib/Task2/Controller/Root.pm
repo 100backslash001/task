@@ -39,9 +39,11 @@ sub index :Path :Args(0) {
 	   gender     => 'male',
     );
 
-    my ($parent) = $cat =~ m/(\w+::\w+::\w{1,3})/; 
-
-    $c->res->body("Main class: " . "$parent" . "<br>Cat says: " . $cat->make_sound());
+    $c->res->body(
+        "Main class: " . $cat->get_package_name . ";"
+        . "<br> What class can do: " . $cat->make_sound . "."
+        . "<br> Its gender is: " . $cat->get_gender . "."
+    );
 }
 
 =head2 default

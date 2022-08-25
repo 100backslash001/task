@@ -18,6 +18,10 @@ sub make_sound {
 	return "Meow $parent_meth";
 }
 
+sub get_package_name {
+	return __PACKAGE__;
+}
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
