@@ -1,0 +1,9 @@
+a) sudo chmod a+rwx /var/logs/archive - полный доступ для всех пользователей
+
+b) tar xvzf backup.tar.gz
+
+c) 	rm -i *.tmp - удалить спросив
+	rm -f *.tmp - удалить не спросив
+	rm -v *.tmp - удалить описав что сделано с файлом
+
+d) grep -Ril "user deleted" /
