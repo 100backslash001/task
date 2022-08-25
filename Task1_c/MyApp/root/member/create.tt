@@ -1,0 +1,24 @@
+<head>
+	<title>Registration page</title>
+</heaad>
+<form id="user_form" name="[% form.name %]" action="[% c.uri_for_action('/member/create') %]" method="POST">	
+	[% f = form.field('login') %]
+	<label class="label" for="[% f.name %]">[% f.label %]: </label>
+	<input type="text" name="[% f.name %]" id="[% f.name %]" value="[% f.name %]" required>
+	<br>
+	[% f = form.field('password') %]
+	<label class="label" for="[% f.name %]">[% f.label %]: </label>
+	<input type="password" name="[% f.name %]" id="[% f.name %]" value="" required>
+	<br>
+	[% f = form.field('password_confirm') %]
+	<label class="label" for="[% f.name %]">[% f.label %]: </label>
+	<input type="password" name="[% f.name %]" id="[% f.name %]" value="" required>
+	<br>
+	[% f = form.field('email') %]
+	<label class="label" for="[% f.name %]">[% f.label %]: </label>
+	<input type="email" name="[% f.name %]" id="[% f.name %]" value="[% f.fif %]" required>
+	<br>
+	<input id="user_form_button" class="button" name="submit" type="submit" value="Submit"/>
+</form>
+
+<a href="[% c.uri_for_action('/login/index') %]">Login</a>

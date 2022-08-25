@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Log in</title>
+	<link rel="stylesheet" href="[% c.uri_for('/css/main.css') %]">
+</head>
+
+<body>
+	<div class="log_in">
+		<h2>Log in</h2>
+
+		<form method="POST" action="[% c.uri_for_action('/login/index') %]" class="login_form">
+			<ul style="list-style: none;">
+				<li>Username:    <input type="text" name="login" required></li>
+				<li>Password: <input type="password" name="password" required></li>
+				<li>      	  <input type="submit" value="Log in"></li>
+			
+				[% err_msg %]
+			</ul>
+		</form>
+
+		<a href="[% c.uri_for('/member/create') %]">Don't have an account create it</a>
+	</div>
+</body>
+</html>

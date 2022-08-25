@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="[% c.uri_for('/css/main.css') %]">
+</head>
+<body>
+	<div id="header">
+		<h3 style="float: left;">Hero Battle Forum</h3>
+		<br>
+		[% IF c.user_exists -%]
+			<ul class="user_top">
+		[% ELSE -%] 
+			<ul class="guest_top"> 
+		[% END %]
+			<li><a href="[% c.uri_for_action('/index') %]">Main page</a></li>
+			<li><a href="[% c.uri_for_action('/posts/index') %]">Posts</a></li>
+			<li><a href=""></a>Help</li>
+			[% IF c.user_exists -%]
+				<li>[% c.user.login | html %]</li>
+				<li><a href="[% c.uri_for_action('/logout/index') %]">Logout</a></li>
+			[% ELSE -%]
+				<li>Guest user</li>
+				<li><a href="[% c.uri_for_action('/login/index') %]">Login</a></li>
+				<li><a href="[% c.uri_for_action('/member/create') %]">Create new</a></li>
+			[% END -%]
+		</ul>
+	</div>
+</body>
+</html>

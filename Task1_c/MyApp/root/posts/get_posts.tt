@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Posts page</title>
+</head>
+<body>
+	[% INCLUDE header.tt %]
+	<div class="post_prehead">
+		<h1>All posts</h1>
+
+		<a href="[% c.uri_for_action('/posts/create') %]">Create a new post</a>
+	</div>
+	<div class="posts">
+		<ul class="post">
+			[% FOREACH post IN posts -%]
+				<li class="post_title">
+					[% post.title | html %]
+					[% IF post.user_id == c.user.id -%]
+						<a class="delete_post" href="[% c.uri_for('/posts/delete' , post.id) %]">Delete</a>
+						<a class="edit_post" href="[% c.uri_for_action('/posts/edit', post.id) %]">Edit Post</a>
+					[% END -%]
+				</li>
+				<li class="post_author">Author: <a href="#">[% c.model('Site::User').find('id' => post.user_id).login | html %]</a></li>
+				<li>[% post.text | html %]</li><br>
+				<li>Created at: [% post.created_at | html %] <br> [% IF post.updated_at -%]Updated at:[% post.updated_at | html %][% END -%]</li>
+			[% END -%]
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+<h1 style="text-align: center;">Page not found</h1>
+<a style="text-align: center;" href="[% c.uri_for('/') %]">Turn back</a>

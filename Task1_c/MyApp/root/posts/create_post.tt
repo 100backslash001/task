@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Create new post</title>
+</head>
+<body>
+	[% INCLUDE header.tt %]
+
+	<h1>Fill in the blank area to post your story</h1>
+
+	<fieldset>
+		<legend>Create new post</legend>
+		<form id="user_form" name="[% form.name %]" action="[% c.uri_for_action('/posts/create') %]" method="GET">	
+			[% f = form.field('title') %]
+			<label class="label" for="[% f.name %]">[% f.label %]: </label>
+			<input type="text" name="[% f.name %]" id="[% f.name %]" value="" required>
+			<br>
+			<br>
+			[% f = form.field('text') %]
+			<label class="label" for="[% f.name %]">Enter text for post: </label><br><br>
+			<textarea name="[% f.name %]" id="value" cols="30" rows="10"></textarea>
+			[% f = form.field('user_id') %]
+			<input type="hidden" name="[% f.name %]" id="[% f.name %]" value="[% c.user.id %]">
+			<br>
+			<br>
+			<input id="user_form_button" class="button" name="submit" type="submit" value="Submit"/>
+		</form>
+	</fieldset>	
+</body>
+</html>

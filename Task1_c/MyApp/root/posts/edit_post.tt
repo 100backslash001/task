@@ -1,0 +1,7 @@
+<h1>Edit Post</h1>
+
+<form method="POST">
+	<input type="text" name="edited_title" value="[% c.model('Site::Post').find('id' => post_id).title %]"><br><br>
+	<textarea name="edited" id="edit_field" cols="30" rows="10">[% c.model('Site::Post').find('id' => post_id).text | html %]</textarea><br><br>
+	<input type="submit" name="submit" value="Edit">
+</form>
