@@ -13,12 +13,12 @@ Task1_b::Controller::Phonebook - Catalyst Controller
 Catalyst Controller.
 
 =head1 METHODS
-
+    Methods in Phonebook.pm controller: index, create, edit, delete. 
 =cut
 
 
 =head2 index
-
+    
 =cut
 
 sub index :Path :Args(0) {
@@ -35,8 +35,8 @@ sub index :Path :Args(0) {
 sub create :Local {
     my ($self, $c) = @_;
 
-    if ($c->req->params->{name} && $c->req->params->{fname}
-                                && $c->req->params->{phone}) {
+    if ( $c->req->params->{name} && $c->req->params->{fname}
+                                && $c->req->params->{phone} ) {
         $c->model('PhoneDB::Contact')->create({
             name  => $c->req->params->{name},
             fname => $c->req->params->{fname},
@@ -59,12 +59,14 @@ sub edit :Local {
 
     if($c->req->params->{name} && $c->req->params->{fname}
                                && $c->req->params->{phone}) {
+        
       $c->model('PhoneDB::Contact')->find({ 'id' => $id })
                                    ->update({
                                      name  => $c->req->params->{name},
                                      fname => $c->req->params->{fname},
                                      phone => $c->req->params->{phone},
                                    });
+
       $c->res->redirect($c->uri_for_action('phonebook/index'));
     }
     else {

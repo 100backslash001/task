@@ -133,7 +133,6 @@ __PACKAGE__->add_unique_constraint("phone", ["phone"]);
 # Created by DBIx::Class::Schema::Loader v0.07049 @ 2022-08-22 05:08:20
 # DO NOT MODIFY THIS OR ANYTHING ABOVE! md5sum:AUhpBMyGnPx+DUFZEr1BrA
 
-
 # You can replace this text with custom code or comments, and it will be preserved on regeneration
 __PACKAGE__->meta->make_immutable;
 1;
