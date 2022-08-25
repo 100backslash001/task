@@ -35,7 +35,7 @@ sub index :Path :Args(0) {
     my $cat = $c->model('Cat')->new(
        name       => 'John',
 	   wool       => 'Smooth',
-	   detachment => 'cat',
+	   detachment => 'Carnivorous',
 	   gender     => 'male',
     );
 
@@ -43,6 +43,7 @@ sub index :Path :Args(0) {
         "Main class: " . $cat->get_package_name . ";"
         . "<br> What class can do: " . $cat->make_sound . "."
         . "<br> Its gender is: " . $cat->get_gender . "."
+        . "<br> " . $cat->get_name . " is " . $cat->eat . "."
     );
 }
 

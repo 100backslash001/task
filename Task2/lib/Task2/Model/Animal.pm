@@ -18,7 +18,7 @@ has 'wool' => (
 
 has 'detachment' => (
 	is  => 'ro',
-        isa => 'Str',	
+    isa => 'Str',	
 );
 
 has 'gender' => (
