@@ -8,7 +8,7 @@ sub array_sort ($c) {
 
   my @sorted = Task1_a::Model::Array_sorter::bubble_sort(@unsorted);
   my $element = $c->req->param('value');
-  my $matched = Task1_a::Model::Array_sorter::binary_search($element, @sorted);
+  my $matched = Task1_a::Model::Array_sorter::binary_search(\@sorted, $element);
 
   $c->stash(
     element  => $element,

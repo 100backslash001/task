@@ -13,4 +13,4 @@
   <input type="text" name="value">
   <input type="submit" value="find">
 </form>
-<p>The element [% element %]: [% IF matched -%] MATCH [% ELSE -%]NOT MATCH[% END -%]</p>
+<p>The element [% element %]: [% IF matched == "MATCHED"-%] MATCHED [% ELSE -%]NOT MATCHED[% END -%]</p>
