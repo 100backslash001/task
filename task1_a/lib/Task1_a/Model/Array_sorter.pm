@@ -3,19 +3,19 @@ use POSIX;
 use Modern::Perl;
 
 sub bubble_sort {
-    my @array = @_;
+    my $array = shift;
 
-    foreach my $i (0..scalar(@array) - 1) {
-        foreach my $j (0..scalar(@array) - 1 - $i - 1) {
-            if($array[$j] > $array[$j + 1]) {
-                my $temp = $array[$j];
-                $array[$j] = $array[$j + 1];
-                $array[$j + 1] = $temp;
+    foreach my $i (0..@$array - 1) {
+        foreach my $j (0..@$array - 1 - $i - 1) {
+            if($$array[$j] > $$array[$j + 1]) {
+                my $temp = $$array[$j];
+                $$array[$j] = $$array[$j + 1];
+                $$array[$j + 1] = $temp;
             }
         }
     }
 
-    return @array;
+    return $array;
 }
 
 sub binary_search {

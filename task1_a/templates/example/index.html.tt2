@@ -1,8 +1,5 @@
 <h1>Welcome to array sorter</h1>
-<h2>Array before sorting:</h2>
-[% FOREACH item IN unsorted %]
-  [% item | html %]
-[% END %]
+
 <h2>Array after sorting:</h2>
 [% FOREACH item IN sorted %]
   [% item | html %]

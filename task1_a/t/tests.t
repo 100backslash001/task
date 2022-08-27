@@ -13,13 +13,13 @@ describe "Array_sorter" => sub {
 
 	describe "buble_sort" => sub {
 		it "sorted array" => sub {
-			is($compare->compare([Array_sorter::bubble_sort( 3, 2, 1 )], [ 1, 2, 3 ]), '1');
-			is($compare->compare([Array_sorter::bubble_sort( 1, 2, 3 )], [ 1, 2, 3 ]), '1');
-			is($compare->compare([Array_sorter::bubble_sort( 2, 0, -1, 2, 1 )], [ -1, 0, 1, 2, 2 ]), '1');
-			is($compare->compare([Array_sorter::bubble_sort( 1 )], [ 1 ]), '1');
+			is($compare->compare(Array_sorter::bubble_sort( [ 3, 2, 1 ] ), [ 1, 2, 3 ]), '1');
+			is($compare->compare(Array_sorter::bubble_sort( [ 1, 2, 3 ] ), [ 1, 2, 3 ]), '1');
+			is($compare->compare(Array_sorter::bubble_sort( [ 2, 0, -1, 2, 1 ] ), [ -1, 0, 1, 2, 2 ]), '1');
+			is($compare->compare(Array_sorter::bubble_sort( [ 1 ] ), [ 1 ]), '1');
 
-			is($compare->compare([reverse Array_sorter::bubble_sort( 3, 2, 1 )], [ 3, 2, 1 ]), '1');
-			is($compare->compare([reverse Array_sorter::bubble_sort( 10, 7, 5, 0 )], [ 10, 7, 5, 0 ]), '1');
+			is($compare->compare([ reverse @{Array_sorter::bubble_sort( [ 3, 2, 1 ] )} ], [ 3, 2, 1 ]), '1');
+			is($compare->compare([ reverse @{Array_sorter::bubble_sort( [ 10, 7, 5, 0 ] )} ], [ 10, 7, 5, 0 ]), '1');
 		};
 	};
 

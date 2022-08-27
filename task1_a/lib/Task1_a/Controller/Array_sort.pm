@@ -6,15 +6,15 @@ use Task1_a::Model::Array_sorter;
 sub array_sort ($c) {
   my @unsorted = qw/ 7 1 3 4 2 4 6 5 5 /;
 
-  my @sorted = Task1_a::Model::Array_sorter::bubble_sort(@unsorted);
+  my $sorted = Task1_a::Model::Array_sorter::bubble_sort(\@unsorted);
   my $element = $c->req->param('value');
-  my $matched = Task1_a::Model::Array_sorter::binary_search(\@sorted, $element);
+  my $matched = Task1_a::Model::Array_sorter::binary_search($sorted, $element);
 
   $c->stash(
     element  => $element,
     matched  => $matched,
     unsorted => \@unsorted,
-    sorted   => \@sorted,
+    sorted   => $sorted,
   );
   $c->render(template => 'example/index');
 }
