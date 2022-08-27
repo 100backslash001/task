@@ -2,6 +2,7 @@
 use strict;
 use warnings;
 use Test::More;
+use lib 'Task2/lib/';
 
 use Catalyst::Test 'Task2';
 
